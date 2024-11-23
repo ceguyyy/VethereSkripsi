@@ -8,10 +8,20 @@
 import SwiftUI
 
 @main
-struct Skrispi_VetHereApp: App {
+struct VetClinicAppApp: App {
+    @StateObject private var authVM = AuthViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if authVM.isAuthenticated {
+                ContentView(authVM: authVM)
+            } else {
+                if authVM.isLogin {
+                    LoginView(authVM: authVM)
+                }else{
+                    SignUpView(authVM: authVM)
+                }
+                
+            }
         }
     }
 }
