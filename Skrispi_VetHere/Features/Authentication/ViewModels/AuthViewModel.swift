@@ -42,7 +42,6 @@ class AuthViewModel: ObservableObject {
         return vm
     }
     
-    
     func login() {
         AuthService.shared.login(username: username, password: password)
             .receive(on: DispatchQueue.main)
@@ -51,16 +50,33 @@ class AuthViewModel: ObservableObject {
                     self.errorMessage = error.localizedDescription
                     print("Error: \(error)")
                 }
-            }, receiveValue: { token in
-                print("Received Token: \(token)")
-                TokenManager.shared.token = token
-                self.isAuthenticated = true
-                self.successMessage = "Valid"
-                self.currentUser = UserModel(id: UUID(), email: self.email, username: self.username, lastName: self.lastName, firstName: self.firstName, password: self.password, role: self.role, createdAt: self.createdAt, updatedAt: self.updatedAt, imageName: self.imageName)
+            }, receiveValue: { response in
+                if let data = response["data"] as? [String: Any],
+                   let accessToken = data["access_token"] as? String {
+                    print("Received Access Token: \(accessToken)")
+                    TokenManager.shared.token = accessToken
+                    self.isAuthenticated = true
+                    self.successMessage = "Login successful"
+                    self.currentUser = UserModel(
+                        id: UUID(),
+                        email: self.email,
+                        username: self.username,
+                        lastName: self.lastName,
+                        firstName: self.firstName,
+                        password: self.password,
+                        role: self.role,
+                        createdAt: self.createdAt,
+                        updatedAt: self.updatedAt,
+                        imageName: self.imageName
+                    )
+                    
+                } else {
+                    self.errorMessage = "Failed to parse response"
+                }
             })
-        
             .store(in: &cancellables)
     }
+
     
     
     func signup() {
@@ -70,15 +86,20 @@ class AuthViewModel: ObservableObject {
                 if case .failure(let error) = completion {
                     self.errorMessage = error.localizedDescription
                 }
-            }, receiveValue: { token in
-                self.successMessage = "User created"
-                self.errorMessage = nil
-                TokenManager.shared.token = token
-                self.isAuthenticated = false
+            }, receiveValue: { response in
+                if let data = response["data"] as? [String: Any],
+                   let accessToken = data["access_token"] as? String {
+                    self.successMessage = "User created successfully"
+                    self.errorMessage = nil
+                    TokenManager.shared.token = accessToken
+                    self.isAuthenticated = false
+                } else {
+                    self.errorMessage = "Failed to parse response"
+                }
             })
             .store(in: &cancellables)
     }
-    
+
     
     func logout() {
         TokenManager.shared.logout()

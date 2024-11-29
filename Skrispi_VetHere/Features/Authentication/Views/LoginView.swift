@@ -20,7 +20,7 @@ struct LoginView: View {
                     Font.custom("SF Pro", size: 20)
                     .weight(.semibold)
                     )
-                TextField("Masukan username", text: $authVM.email)
+                TextField("Masukan username", text: $authVM.username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .keyboardType(.emailAddress)
