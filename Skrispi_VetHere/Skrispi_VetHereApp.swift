@@ -4,12 +4,12 @@
 //
 //  Created by Christian Gunawan on 05/11/24.
 //
-
 import SwiftUI
 
 @main
 struct VetClinicAppApp: App {
-    @StateObject private var authVM = AuthViewModel()
+    @StateObject var authVM = AuthViewModel() // Initialize AuthViewModel
+    
     var body: some Scene {
         WindowGroup {
             if authVM.isAuthenticated {
@@ -17,10 +17,9 @@ struct VetClinicAppApp: App {
             } else {
                 if authVM.isLogin {
                     LoginView(authVM: authVM)
-                }else{
+                } else {
                     SignUpView(authVM: authVM)
                 }
-                
             }
         }
     }

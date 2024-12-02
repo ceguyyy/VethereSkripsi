@@ -10,14 +10,7 @@ struct BookChoosePetView: View {
     
     var body: some View {
         VStack {
-            if petViewModel.isLoading {
-                ProgressView("Loading pets...")
-                    .padding()
-            } else if petViewModel.showError {
-                Text("Error loading pets. Please try again.")
-                    .foregroundColor(.red)
-                    .padding()
-            } else {
+           
                 List {
                     Section(header: Text("Hewan peliharaan")) {
                         ForEach(petViewModel.pets) { pet in
@@ -94,7 +87,7 @@ struct BookChoosePetView: View {
                         
                 }  .onTapGesture {
                     if let pet = selectedPet {
-                        router.push(.chooseSchedule(vet: vet ?? VetModel(id: UUID(), detailId: UUID(), name: "", description: "", rating: 1, openHour: 1, closeHour: 1, image: "", createdAt: Date.now, updatedAt: Date.now, range: 1, address: ""), doctor: doctor ?? DoctorModel(id: UUID(), vetId: UUID(), specializationId: UUID(), name: "", rating: 1, creadtedAt: Date.now, updatedAt: Date.now, image: ""), pet: selectedPet ?? PetModel(id: UUID(), userId: UUID(), petTypeId: UUID(), medicalRecordId: UUID(), breedId: UUID(), image: "", name: "", color: "", dob: Date.now, createdAt: Date.now, updatedAt: Date.now, weight: 10)))
+                        router.push(.chooseSchedule(vet: vet ?? VetModel(id: UUID(), detailId: UUID(), name: "", description: "", rating: 1, openHour: 1, closeHour: 1, image: "", createdAt: Date.now, updatedAt: Date.now, range: 1, address: ""), doctor: doctor ?? DoctorModel(DoctorId: UUID(), VetId: UUID(), SpecializationId: UUID(), DoctorName: "", DoctorRating: 1, creadtedAt: Date.now, updatedAt: Date.now, image: ""), pet: selectedPet ?? PetModel(id: UUID(), userId: UUID(), petTypeId: UUID(), medicalRecordId: UUID(), breedId: UUID(), image: "", name: "", color: "", dob: Date.now, createdAt: Date.now, updatedAt: Date.now, weight: 10)))
                     } else {
                         print("No pet selected")
                     }
@@ -110,7 +103,7 @@ struct BookChoosePetView: View {
                 .onAppear {
                     petViewModel.fetchPetList()
                 }
-            }
+            
         }
         .navigationTitle("Pilih Hewan Peliharaan")
         .padding(.top, 10)

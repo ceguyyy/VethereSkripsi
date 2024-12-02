@@ -12,10 +12,16 @@ enum APIError: LocalizedError {
     case invalidResponse
     case decodingError
     case httpError(Int)
+    case serverError
+    case parsingError
     case unknown
 
     var errorDescription: String? {
         switch self {
+        case .parsingError:
+            return "Failed to parse the response."
+        case .serverError:
+            return "The server encountered an error."
         case .invalidURL:
             return "The provided URL is invalid."
         case .invalidResponse:

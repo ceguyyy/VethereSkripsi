@@ -86,7 +86,7 @@ struct SummaryView: View {
                             )
                             .foregroundColor(.black)
                             Spacer()
-                            Text(doctor?.name ?? "-").font(Font.custom("SF Pro", size: 20))
+                            Text(doctor?.DoctorName ?? "-").font(Font.custom("SF Pro", size: 20))
                                 .foregroundColor(.black)
                         }
                         .padding(4)

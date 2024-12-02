@@ -10,12 +10,10 @@ import SwiftUI
 
 class AuthViewModel: ObservableObject {
     @Published var username = ""
-  
     @Published var password = ""
     @Published var role = "user"
     @Published var createdAt = Date.now
     @Published var updatedAt = Date.now
-    @Published var email = ""
     @Published var isAuthenticated = false
     @Published var errorMessage: String?
     @Published var successMessage: String? = nil
@@ -35,12 +33,12 @@ class AuthViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     static var mock: AuthViewModel {
-        let vm = AuthViewModel()
-        vm.currentUser = UserModel(id: UUID(), email: "Christian@gmail.com", username: "Christian", lastName: "Gunawan", firstName: "Christian", password: "Christian", role: "User", createdAt: Date(), updatedAt: Date(),imageName: "https://media.licdn.com/dms/image/v2/D5603AQHvobv7mQ-cow/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1704765668714?e=2147483647&v=beta&t=mBPL4u4a5YeR89d4ISbGIcXdoaK52OkfQq1gMLfR76Q")
-                                   
-        
-        return vm
-    }
+            let vm = AuthViewModel()
+        vm.currentUser = UserModel(Userid: UUID(), username: "Christian", first_Name: "Christian", last_Name: "Gunawan", password: "Christian", role: "User", createdAt: Date(), updatedAt: Date(),imageName: "https://media.licdn.com/dms/image/v2/D5603AQHvobv7mQ-cow/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1704765668714?e=2147483647&v=beta&t=mBPL4u4a5YeR89d4ISbGIcXdoaK52OkfQq1gMLfR76Q")
+                                       
+            
+            return vm
+        }
     
     func login() {
         AuthService.shared.login(username: username, password: password)
@@ -57,18 +55,7 @@ class AuthViewModel: ObservableObject {
                     TokenManager.shared.token = accessToken
                     self.isAuthenticated = true
                     self.successMessage = "Login successful"
-                    self.currentUser = UserModel(
-                        id: UUID(),
-                        email: self.email,
-                        username: self.username,
-                        lastName: self.lastName,
-                        firstName: self.firstName,
-                        password: self.password,
-                        role: self.role,
-                        createdAt: self.createdAt,
-                        updatedAt: self.updatedAt,
-                        imageName: self.imageName
-                    )
+                    self.currentUser = UserModel(Userid: UUID(), username: self.username, first_Name: self.firstName, last_Name: self.lastName, password: self.password, role: self.role, createdAt: self.createdAt, updatedAt: self.updatedAt, imageName: self.imageName)
                     
                 } else {
                     self.errorMessage = "Failed to parse response"
@@ -80,7 +67,7 @@ class AuthViewModel: ObservableObject {
     
     
     func signup() {
-        AuthService.shared.signup(username: username, password: password, firstName: firstName, email: email, role: role, createdAt: createdAt, updatedAt: updatedAt, lastname: lastName)
+        AuthService.shared.signup(username: username, password: password, firstName: firstName, lastname: lastName)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
@@ -113,6 +100,5 @@ class AuthViewModel: ObservableObject {
         username = ""
         password = ""
         firstName = ""
-        email = ""
     }
 }

@@ -30,7 +30,7 @@ struct DoctorCardComponent: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                     }
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(doctor.name)
+                    Text(doctor.DoctorName)
                         .font(.headline)
                         .bold()
                         .padding(.leading)
@@ -39,7 +39,7 @@ struct DoctorCardComponent: View {
                         .foregroundColor(.secondary)
                         .padding(.leading)
                     HStack {
-                        ForEach(0..<doctor.rating, id: \.self) { _ in
+                        ForEach(0..<doctor.DoctorRating, id: \.self) { _ in
                             Image(systemName: "star.fill")
                                 .foregroundColor(.yellow)
                                 .font(.system(size: 12))
@@ -84,11 +84,11 @@ struct DoctorCardComponent: View {
 struct DoctorCardComponent_Previews: PreviewProvider {
     static var previews: some View {
         let sampleDoctor = DoctorModel(
-            id: UUID(),
-            vetId: UUID(),
-            specializationId: UUID(),
-            name: "Agus",
-            rating: 5,
+            DoctorId: UUID(),
+            VetId: UUID(),
+            SpecializationId: UUID(),
+            DoctorName: "Agus",
+            DoctorRating: 5,
             creadtedAt: .now,
             updatedAt: .now,
             image: "dog"
