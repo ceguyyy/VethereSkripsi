@@ -8,7 +8,7 @@ import SwiftUI
 
 struct DoctorCardComponent: View {
     var doctor: DoctorModel
-    var specialization: DoctorSpecialization
+    var specialization: DoctorSpecializationModel
     var bookingAction: () -> Void
     var chatAction: () -> Void
     
@@ -94,7 +94,7 @@ struct DoctorCardComponent_Previews: PreviewProvider {
             image: "dog"
         )
         
-        let sampleSpecialization = DoctorSpecialization(id: UUID(), name: "Veterinarian")
+        let sampleSpecialization = DoctorSpecializationModel(id: UUID(), name: "Veterinarian")
         
         DoctorCardComponent(
             doctor: sampleDoctor,

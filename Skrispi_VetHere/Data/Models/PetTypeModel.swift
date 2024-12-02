@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class  PetTypeModel: Identifiable {
+class PetTypeModel: Identifiable {
     let id: Int
     let name: String
     let createdAt: Date

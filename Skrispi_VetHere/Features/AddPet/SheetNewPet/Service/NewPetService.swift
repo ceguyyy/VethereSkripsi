@@ -19,7 +19,7 @@ class NewPetService {
             self.decoder.dateDecodingStrategy = .iso8601
         }
     
-    func savePet(pet: NewPet,token: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func savePet(pet: NewPetModel,token: String, completion: @escaping (Result<Void, Error>) -> Void) {
         guard let url = URL(string: "\(baseURL)/create") else {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid server URL"])))
             return

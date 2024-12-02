@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-class BreedModel: Identifiable , Codable ,Hashable{
-    let Breedid: UUID
-    var Breedname: String
+class BreedModel: Identifiable, Codable, Hashable {
+    let breedId: UUID
+    var breedName: String
     var createdAt: Date
     var updatedAt: Date
 
-    init(Breedid: UUID, Breedname: String, createdAt: Date, updatedAt: Date) {
-        self.Breedid = Breedid
-        self.Breedname = Breedname
+    init(breedId: UUID, breedName: String, createdAt: Date, updatedAt: Date) {
+        self.breedId = breedId
+        self.breedName = breedName
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }

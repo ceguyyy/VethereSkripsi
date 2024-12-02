@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct VetDetailModel: Identifiable, Codable, Hashable {
     let id: UUID
     let scheduleId: UUID

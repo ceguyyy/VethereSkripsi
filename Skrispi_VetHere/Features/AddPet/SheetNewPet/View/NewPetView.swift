@@ -60,9 +60,9 @@ struct NewPetView: View {
                             return
                         }
 
-                        let newPet = NewPet(
-                            petTypeID: petTypeID,
-                            breedID: breedID,
+                        let newPet = NewPetModel(
+                            petTypeId: petTypeID,
+                            breedId: breedID,
                             petImage: selectedUIImage?.jpegData(compressionQuality: 0.8),
                             petName: petName,
                             petColor: petColor,

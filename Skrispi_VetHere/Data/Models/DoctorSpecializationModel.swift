@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class DoctorSpecialization: Identifiable, Codable, Hashable {
+class DoctorSpecializationModel: Identifiable, Codable, Hashable {
     let id: UUID
     let name: String
     
@@ -16,7 +16,7 @@ class DoctorSpecialization: Identifiable, Codable, Hashable {
         self.name = name
     }
     
-    static func == (lhs: DoctorSpecialization, rhs: DoctorSpecialization) -> Bool {
+    static func == (lhs: DoctorSpecializationModel, rhs: DoctorSpecializationModel) -> Bool {
         return lhs.id == rhs.id
     }
 
