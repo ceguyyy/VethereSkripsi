@@ -15,7 +15,7 @@ class NewPetViewModel: ObservableObject {
 
     private let service = NewPetService()
 
-    func savePet(pet: NewPet) {
+    func savePet(pet: NewPetModel) {
         self.isSaving = true
         self.errorMessage = nil
 

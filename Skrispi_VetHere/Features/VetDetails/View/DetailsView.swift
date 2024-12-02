@@ -76,7 +76,7 @@ struct DetailsView: View {
                                 updatedAt: Date(),
                                 image: "test"
                             ),
-                            specialization: DoctorSpecialization(id: UUID(), name: "ahli"),
+                            specialization: DoctorSpecializationModel(id: UUID(), name: "ahli"),
                             bookingAction: {
                                 router.push(.book(vet: vet, doctor: DoctorModel(
                                     DoctorId: UUID(),
