@@ -20,25 +20,41 @@ struct MyPetView: View {
                 if viewModel.isLoading {
                     ProgressView("Loading...")
                         .frame(maxWidth: .infinity, alignment: .center)
-                } else if let error = viewModel.error {
+                }
+                else if let error = viewModel.error {
                     Text("No pets available.")
                         .font(.body)
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity, alignment: .center)
-                } else {
+                }
+                else {
                     ForEach(viewModel.pets) { pet in
                         HStack {
-                            AsyncImage(url: URL(string: pet.image)) { image in
-                                image.resizable().scaledToFit()
-                            } placeholder: {
-                                Image(systemName: "photo").resizable().scaledToFit()
-                            }
-                            .frame(width: 50, height: 50)
                             
-                            VStack(alignment: .leading) {
-                                Text(pet.name).font(.headline)
-                                Text(pet.petTypeId.uuidString).font(.subheadline).foregroundColor(.gray)
+                            if let imageURL = URL(string: pet.image ?? "") {
+                                AsyncImage(url: imageURL) { image in
+                                    image.resizable()
+                                        .scaledToFit()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(width: 50, height: 50)
+                            } else {
+                                
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                    .foregroundColor(.gray)
                             }
+
+                            VStack(alignment: .leading) {
+                                Text(pet.name)
+                                    .font(.headline)
+                                Text(pet.petTypeId.uuidString)
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            
                             Spacer()
                         }
                         .onTapGesture {
@@ -46,6 +62,7 @@ struct MyPetView: View {
                         }
                     }
                 }
+
                 Section {
                     HStack {
                         Text("Peliharaan Baru")
@@ -60,15 +77,14 @@ struct MyPetView: View {
                         NewPetView()
                     }
                 }
-                .onAppear {
-                    viewModel.fetchPetList()
-                }
             }
             .navigationTitle("Peliharaan")
             .refreshable {
                 viewModel.fetchPetList()
             }
+            .onAppear {
+                viewModel.fetchPetList()
+            }
         }
     }
 }
-

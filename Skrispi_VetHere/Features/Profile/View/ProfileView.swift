@@ -84,11 +84,6 @@ struct ProfileView: View {
         .sheet(isPresented: $showImagePicker) {
             ImagePicker(image: $selectedUIImage)
         }
-//        .onChange(of: selectedUIImage) { newImage in
-////            if let uiImage = newImage {
-////                authVM.updateProfileImage(image: uiImage)
-////            }
-//        }
         .padding()
         .navigationTitle("Profile")
     }

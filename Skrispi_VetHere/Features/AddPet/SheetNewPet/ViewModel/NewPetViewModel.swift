@@ -17,14 +17,23 @@ class NewPetViewModel: ObservableObject {
 
     func savePet(pet: NewPet) {
         self.isSaving = true
-        service.savePet(pet: pet) { result in
+        self.errorMessage = nil
+
+        guard let token = TokenManager.shared.token else {
+            self.errorMessage = "Token not available."
+            self.isSaving = false
+            return
+        }
+
+        service.savePet(pet: pet, token: token) { result in
             DispatchQueue.main.async {
                 self.isSaving = false
                 switch result {
                 case .success:
-                    print("Pet saved successfully")
+                    self.errorMessage = "Pet saved successfully"
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription
+                    
                 }
             }
         }

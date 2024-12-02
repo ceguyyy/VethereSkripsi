@@ -7,14 +7,14 @@
 
 import Foundation
 
-class NewPet: Codable {
-    let petTypeID: String
-    let breedID: String
-    let petImage: Data?
-    let petName: String
-    let petColor: String
-    let petDOB: Date
-    
+class NewPet {
+    var petTypeID: String
+    var breedID: String
+    var petImage: Data?
+    var petName: String
+    var petColor: String
+    var petDOB: Date
+
     init(petTypeID: String, breedID: String, petImage: Data?, petName: String, petColor: String, petDOB: Date) {
         self.petTypeID = petTypeID
         self.breedID = breedID
@@ -22,5 +22,5 @@ class NewPet: Codable {
         self.petName = petName
         self.petColor = petColor
         self.petDOB = petDOB
-    }   
+    }
 }

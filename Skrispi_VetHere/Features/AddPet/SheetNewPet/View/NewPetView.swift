@@ -5,7 +5,6 @@
 //  Created by Christian Gunawan on 02/12/24.
 //
 
-
 import SwiftUI
 
 struct NewPetView: View {
@@ -22,7 +21,7 @@ struct NewPetView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Pet Image")) {
+                Section() {
                     VStack {
                         if let image = selectedUIImage {
                             Image(uiImage: image)
@@ -42,6 +41,8 @@ struct NewPetView: View {
                                 }
                         }
                     }
+                    .frame(maxWidth: .infinity, alignment: .center)
+
                 }
                 
                 Section(header: Text("Details")) {
@@ -54,6 +55,11 @@ struct NewPetView: View {
 
                 Section {
                     Button(action: {
+                        guard !petName.isEmpty, !petTypeID.isEmpty, !breedID.isEmpty, !petColor.isEmpty else {
+                            viewModel.errorMessage = "Please fill in all required fields."
+                            return
+                        }
+
                         let newPet = NewPet(
                             petTypeID: petTypeID,
                             breedID: breedID,
@@ -79,7 +85,7 @@ struct NewPetView: View {
             }
             .alert(isPresented: .constant(viewModel.errorMessage != nil)) {
                 Alert(
-                    title: Text("Error"),
+                    title: Text("Notification"),
                     message: Text(viewModel.errorMessage ?? ""),
                     dismissButton: .default(Text("OK"))
                 )
