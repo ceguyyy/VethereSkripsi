@@ -17,3 +17,5 @@ struct VetDetailModel: Identifiable, Codable, Hashable {
     let createdAt: Date
     let updatedAt: Date
 }
+
+

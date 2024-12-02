@@ -47,12 +47,9 @@ struct ProfileView: View {
                     
                     Text("Username: \(user.username)")
                         .font(.headline)
-                    Text("Name: \(user.firstName) \(user.lastName)")
+                    Text("Name: \(user.first_Name) \(user.last_Name)")
                         .font(.title)
                         .bold()
-                    Text("Email: \(user.email)")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
                     Text("Role: \(user.role)")
                         .font(.subheadline)
                     Text("Joined: \(user.createdAt, formatter: DateFormatter.shortDate)")
@@ -87,11 +84,11 @@ struct ProfileView: View {
         .sheet(isPresented: $showImagePicker) {
             ImagePicker(image: $selectedUIImage)
         }
-        .onChange(of: selectedUIImage) { newImage in
-//            if let uiImage = newImage {
-//                authVM.updateProfileImage(image: uiImage)
-//            }
-        }
+//        .onChange(of: selectedUIImage) { newImage in
+////            if let uiImage = newImage {
+////                authVM.updateProfileImage(image: uiImage)
+////            }
+//        }
         .padding()
         .navigationTitle("Profile")
     }

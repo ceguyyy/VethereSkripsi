@@ -67,11 +67,11 @@ struct DetailsView: View {
                     case .appointment:
                         DoctorCardComponent(
                             doctor: doctor ?? DoctorModel(
-                                id: UUID(),
-                                vetId: UUID(),
-                                specializationId: UUID(),
-                                name: "Joseph",
-                                rating: 5,
+                                DoctorId: UUID(),
+                                VetId: UUID(),
+                                SpecializationId: UUID(),
+                                DoctorName: "Joseph",
+                                DoctorRating: 5,
                                 creadtedAt: Date(),
                                 updatedAt: Date(),
                                 image: "test"
@@ -79,11 +79,11 @@ struct DetailsView: View {
                             specialization: DoctorSpecialization(id: UUID(), name: "ahli"),
                             bookingAction: {
                                 router.push(.book(vet: vet, doctor: DoctorModel(
-                                    id: UUID(),
-                                    vetId: UUID(),
-                                    specializationId: UUID(),
-                                    name: "Joseph",
-                                    rating: 5,
+                                    DoctorId: UUID(),
+                                    VetId: UUID(),
+                                    SpecializationId: UUID(),
+                                    DoctorName: "Joseph",
+                                    DoctorRating: 5,
                                     creadtedAt: Date(),
                                     updatedAt: Date(),
                                     image: "test")))

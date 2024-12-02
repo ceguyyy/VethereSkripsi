@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct VetDetailResponse: Decodable {
     let data: VetDetailData

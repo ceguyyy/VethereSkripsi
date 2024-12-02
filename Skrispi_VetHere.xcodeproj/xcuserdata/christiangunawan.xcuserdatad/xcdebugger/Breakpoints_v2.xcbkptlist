@@ -20,5 +20,149 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "12671446-DDFF-44D9-A8DD-51869DBA3D36"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Skrispi_VetHere/Features/Layer2/VetDetails/ViewModels/VetDetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "init(apiService:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "12671446-DDFF-44D9-A8DD-51869DBA3D36 - cfac0c944882a7fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of Skrispi_VetHere.VetDetailViewModel.showError : Swift.Bool"
+                  moduleName = "Skrispi_VetHere.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/christiangunawan/Documents/Xcode/Skrispi_VetHere/Skrispi_VetHere/Features/Layer2/VetDetails/ViewModels/VetDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "12671446-DDFF-44D9-A8DD-51869DBA3D36 - 13c706cc15e62c41"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Skrispi_VetHere.VetDetailViewModel.showError.getter : Swift.Bool"
+                  moduleName = "Skrispi_VetHere.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/christiangunawan/Documents/Xcode/Skrispi_VetHere/Skrispi_VetHere/Features/Layer2/VetDetails/ViewModels/VetDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "12671446-DDFF-44D9-A8DD-51869DBA3D36 - 6126e7938bb8f2d4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Skrispi_VetHere.VetDetailViewModel.showError.setter : Swift.Bool"
+                  moduleName = "Skrispi_VetHere.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/christiangunawan/Documents/Xcode/Skrispi_VetHere/Skrispi_VetHere/Features/Layer2/VetDetails/ViewModels/VetDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+               <Location
+                  uuid = "12671446-DDFF-44D9-A8DD-51869DBA3D36 - f4769b5f5526f6f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Skrispi_VetHere.VetDetailViewModel.showError.modify : Swift.Bool"
+                  moduleName = "Skrispi_VetHere.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/christiangunawan/Documents/Xcode/Skrispi_VetHere/Skrispi_VetHere/Features/Layer2/VetDetails/ViewModels/VetDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+               <Location
+                  uuid = "12671446-DDFF-44D9-A8DD-51869DBA3D36 - 57bedadb9292608b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Skrispi_VetHere.VetDetailViewModel.showError.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Skrispi_VetHere.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "12671446-DDFF-44D9-A8DD-51869DBA3D36 - 52598810ddc70404"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Skrispi_VetHere.VetDetailViewModel.$showError.getter : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "Skrispi_VetHere.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/christiangunawan/Documents/Xcode/Skrispi_VetHere/Skrispi_VetHere/Features/Layer2/VetDetails/ViewModels/VetDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "12671446-DDFF-44D9-A8DD-51869DBA3D36 - 29133fad9b755ea5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Skrispi_VetHere.VetDetailViewModel.$showError.setter : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "Skrispi_VetHere.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/christiangunawan/Documents/Xcode/Skrispi_VetHere/Skrispi_VetHere/Features/Layer2/VetDetails/ViewModels/VetDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+               <Location
+                  uuid = "12671446-DDFF-44D9-A8DD-51869DBA3D36 - 2514e3e97e978db6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Skrispi_VetHere.VetDetailViewModel.$showError.modify : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "Skrispi_VetHere.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/christiangunawan/Documents/Xcode/Skrispi_VetHere/Skrispi_VetHere/Features/Layer2/VetDetails/ViewModels/VetDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+               <Location
+                  uuid = "12671446-DDFF-44D9-A8DD-51869DBA3D36 - 60faca4419c7bc21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Skrispi_VetHere.VetDetailViewModel.$showError.modify : Combine.Published&lt;Swift.Bool&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Skrispi_VetHere.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

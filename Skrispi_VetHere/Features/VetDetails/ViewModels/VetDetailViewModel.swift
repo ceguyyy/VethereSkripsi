@@ -4,12 +4,6 @@
 //
 //  Created by Christian Gunawan on 14/11/24.
 //
-//
-//  VetDetailViewModel.swift
-//  Skrispi_VetHere
-//
-//  Created by Christian Gunawan on 14/11/24.
-//
 
 import SwiftUI
 import Combine
@@ -19,13 +13,13 @@ class VetDetailViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var error: String?
     @Published var showError = false
-    private var hasFetched = false // Add this property
+    private var hasFetched = false
 
     private var cancellables = Set<AnyCancellable>()
-    private let apiService: APIServiceProtocol
+    private let apiService: VetDetailProtocol
 
-    init(apiService: APIServiceProtocol = APIService()) {
-        self.apiService = apiService
+    init(apiService: VetDetailProtocol = VetDetailAPIService()) {
+        self.apiService =  apiService
     }
 
     func fetchVetDetail(vetId: String) {
@@ -33,8 +27,7 @@ class VetDetailViewModel: ObservableObject {
             print("Vet details already fetched.")
             return
         }
-        hasFetched = true // Mark as fetched to prevent repeated calls
-
+        hasFetched = true
         isLoading = true
         error = nil
         showError = false
