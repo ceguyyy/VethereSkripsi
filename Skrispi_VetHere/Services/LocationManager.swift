@@ -1,3 +1,11 @@
+//
+//  LocationManager.swift
+//  Skrispi_VetHere
+//
+//  Created by Christian Gunawan on 02/12/24.
+//
+
+
 import CoreLocation
 import Combine
 
