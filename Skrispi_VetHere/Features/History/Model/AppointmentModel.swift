@@ -8,27 +8,26 @@
 import SwiftUI
 
 class AppointmentModel: Identifiable, Codable, Hashable {
-    let AppointmentId: UUID
-    let VetId: UUID
-    let DoctorId: UUID
-    let UserId: UUID
-    let PetId: UUID
-    var AppointmentNote: String
-    var AppointmentDate: Date
-    var AppointmentTime: Date
+    let appointmentID: UUID
+    let vetID: UUID
+    let doctorID: UUID
+    let userID: UUID
+    let petID: UUID
+    var appointmentNote: String
+    var appointmentDate: Date
+    var appointmentTime: Date
 
-    init(AppointmentId: UUID, VetId: UUID, DoctorId: UUID, UserId: UUID, PetId: UUID, AppointmentNote: String, AppointmentDate: Date, AppointmentTime: Date) {
-        self.AppointmentId = AppointmentId
-        self.VetId = VetId
-        self.DoctorId = DoctorId
-        self.UserId = UserId
-        self.PetId = PetId
-        self.AppointmentNote = AppointmentNote
-        self.AppointmentDate = AppointmentDate
-        self.AppointmentTime = AppointmentTime
+    init(appointmentID: UUID, vetID: UUID, doctorID: UUID, userID: UUID, petID: UUID, appointmentNote: String, appointmentDate: Date, appointmentTime: Date) {
+        self.appointmentID = appointmentID
+        self.vetID = vetID
+        self.doctorID = doctorID
+        self.userID = userID
+        self.petID = petID
+        self.appointmentNote = appointmentNote
+        self.appointmentDate = appointmentDate
+        self.appointmentTime = appointmentTime
     }
     
-    // Conformance to Hashable
     static func == (lhs: AppointmentModel, rhs: AppointmentModel) -> Bool {
         return lhs.id == rhs.id
     }

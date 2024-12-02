@@ -10,32 +10,32 @@ import Foundation
 
 struct VetModel: Identifiable, Codable, Hashable {
     let id: UUID
-    let detailId: UUID
+    let detailID: UUID
     let name: String
     let description: String
     let rating: Int
     let openHour: Double
     let closeHour: Double
     let image: String
-    let createdAt: Date
-    let updatedAt: Date
     let range: Double
     let address: String
+    let createdAt: Date
+    let updatedAt: Date
+
     
-    
-    init(id: UUID, detailId: UUID, name: String, description: String, rating: Int, openHour: Double, closeHour: Double, image: String, createdAt: Date, updatedAt: Date, range: Double, address: String) {
+    init(id: UUID, detailID: UUID, name: String, description: String, rating: Int, openHour: Double, closeHour: Double, image: String, range: Double, address: String, createdAt: Date, updatedAt: Date) {
         self.id = id
-        self.detailId = detailId
+        self.detailID = detailID
         self.name = name
         self.description = description
         self.rating = rating
         self.openHour = openHour
         self.closeHour = closeHour
         self.image = image
-        self.createdAt = createdAt
-        self.updatedAt = updatedAt
         self.range = range
         self.address = address
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
     }
     
     static func == (lhs: VetModel, rhs: VetModel) -> Bool {

@@ -65,28 +65,29 @@ struct DetailsView: View {
                 Group {
                     switch selectedSegment {
                     case .appointment:
-                        DoctorCardComponent(
+                        DoctorCardComponentView(
                             doctor: doctor ?? DoctorModel(
-                                DoctorId: UUID(),
-                                VetId: UUID(),
-                                SpecializationId: UUID(),
-                                DoctorName: "Joseph",
-                                DoctorRating: 5,
-                                creadtedAt: Date(),
-                                updatedAt: Date(),
-                                image: "test"
+                                doctorID: UUID(),
+                                vetID: UUID(),
+                                specializationID: UUID(),
+                                doctorName: "Joseph",
+                                doctorRating: 5,
+                                doctorImage: "test",
+                                createdAt: Date(),
+                                updatedAt: Date()
                             ),
                             specialization: DoctorSpecializationModel(id: UUID(), name: "ahli"),
                             bookingAction: {
                                 router.push(.book(vet: vet, doctor: DoctorModel(
-                                    DoctorId: UUID(),
-                                    VetId: UUID(),
-                                    SpecializationId: UUID(),
-                                    DoctorName: "Joseph",
-                                    DoctorRating: 5,
-                                    creadtedAt: Date(),
-                                    updatedAt: Date(),
-                                    image: "test")))
+                                    doctorID: UUID(),
+                                    vetID: UUID(),
+                                    specializationID: UUID(),
+                                    doctorName: "Joseph",
+                                    doctorRating: 5,
+                                    doctorImage: "test",
+                                    createdAt: Date(),
+                                    updatedAt: Date()
+                                )))
                             },
                             chatAction: {
                                 guard let phoneNumber = vetDetailViewModel.vetDetail?.phoneNumber else {
@@ -100,13 +101,13 @@ struct DetailsView: View {
                             }
                         )
                     case .information:
-                        MapAndAddressComponent(vet: vet, vetDetailViewModel: vetDetailViewModel)
+                        MapAndAddressComponentView(vet: vet, vetDetailViewModel: vetDetailViewModel)
                     }
                 }
             }
             .onAppear {
                 if !hasFetchedDetails {
-                    vetDetailViewModel.fetchVetDetail(vetId: vet.id.uuidString)
+                    vetDetailViewModel.fetchVetDetail(vetID: vet.id.uuidString)
                     hasFetchedDetails = true
                 }
             }

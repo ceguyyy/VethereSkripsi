@@ -8,16 +8,16 @@
 import Foundation
 
 class NewPetModel {
-    var petTypeId: String
-    var breedId: String
+    var petTypeID: String
+    var breedID: String
     var petImage: Data?
     var petName: String
     var petColor: String
     var petDOB: Date
 
-    init(petTypeId: String, breedId: String, petImage: Data?, petName: String, petColor: String, petDOB: Date) {
-        self.petTypeId = petTypeId
-        self.breedId = breedId
+    init(petTypeID: String, breedID: String, petImage: Data?, petName: String, petColor: String, petDOB: Date) {
+        self.petTypeID = petTypeID
+        self.breedID = breedID
         self.petImage = petImage
         self.petName = petName
         self.petColor = petColor

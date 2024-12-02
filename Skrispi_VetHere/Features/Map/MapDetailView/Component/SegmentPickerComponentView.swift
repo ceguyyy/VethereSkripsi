@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SegmentPickerComponent: View {
+struct SegmentPickerComponentView: View {
   @Binding var selectedSegment: DetailEnum
   let segments = DetailEnum.allCases
 

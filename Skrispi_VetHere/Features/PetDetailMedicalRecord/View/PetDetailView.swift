@@ -102,5 +102,5 @@ struct PetDetailView: View {
 }
 
 #Preview {
-    PetDetailView(pet: PetModel(id: UUID(), userId: UUID(), petTypeId: UUID(), medicalRecordId: UUID(), breedId: UUID(), image: "https://i.pinimg.com/564x/a5/84/4a/a5844adc64f7d1005f71d4e055b7d465.jpg", name: "Ucok", color: "green", dob: Date.now, createdAt: Date.now, updatedAt: Date.now, weight: 10))
+    PetDetailView(pet: PetModel(id: UUID(), userID: UUID(), petTypeID: UUID(), medicalRecordID: UUID(), breedID: UUID(), image: "https://i.pinimg.com/564x/a5/84/4a/a5844adc64f7d1005f71d4e055b7d465.jpg", name: "Ucok", color: "green", dob: Date.now, weight: 10, createdAt: Date.now, updatedAt: Date.now))
 }

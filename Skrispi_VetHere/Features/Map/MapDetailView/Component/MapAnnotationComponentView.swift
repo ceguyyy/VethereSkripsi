@@ -9,7 +9,7 @@
 import SwiftUI
 import MapKit
 
-struct MapAnnotationView: View {
+struct MapAnnotationComponentView: View {
     let annotation: VetAnnotationModel
     let action: () -> Void
 
@@ -28,7 +28,7 @@ struct MapAnnotationView: View {
 
 struct MapAnnotationView_Previews: PreviewProvider {
     static var previews: some View {
-        MapAnnotationView(annotation: VetAnnotationModel(latitude: 37.7749, longitude: -122.4194), action: {
+        MapAnnotationComponentView(annotation: VetAnnotationModel(latitude: 37.7749, longitude: -122.4194), action: {
             print("Map pin tapped")
         })
     }

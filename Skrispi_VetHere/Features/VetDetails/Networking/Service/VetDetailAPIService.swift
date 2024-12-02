@@ -22,7 +22,7 @@ class VetDetailAPIService: VetDetailProtocol {
 
     func fetchVetDetail(
             token: String,
-            vetId: String
+            vetID: String
         ) -> AnyPublisher<VetDetailModel, Error> {
             guard let url = URL(string: "\(baseURL)/details") else {
                 return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
@@ -33,7 +33,7 @@ class VetDetailAPIService: VetDetailProtocol {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-            let body: [String: String] = ["vet_id": vetId]
+            let body: [String: String] = ["vet_id": vetID]
 
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
 
@@ -43,7 +43,7 @@ class VetDetailAPIService: VetDetailProtocol {
                 .map { response in
                     VetDetailModel(
                         id: UUID(uuidString: response.data.vet_id) ?? UUID(),
-                        scheduleId: UUID(uuidString: response.data.vet_detail.vet_detail_id) ?? UUID(),
+                        scheduleID: UUID(uuidString: response.data.vet_detail.vet_detail_id) ?? UUID(),
                         phoneNumber: response.data.vet_detail.vet_phone_number,
                         latitude: response.data.vet_detail.vet_latitude,
                         longitude: response.data.vet_detail.vet_longitude,

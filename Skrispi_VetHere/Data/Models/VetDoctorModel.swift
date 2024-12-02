@@ -8,5 +8,5 @@ import SwiftUI
 
 struct VetDoctorModel: Identifiable, Codable {
     let id: UUID
-    let doctorId: UUID
+    let doctorID: UUID
 }

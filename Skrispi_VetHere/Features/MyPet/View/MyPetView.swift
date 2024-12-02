@@ -12,7 +12,7 @@ import Combine
 struct MyPetView: View {
     @EnvironmentObject var router: Router
     @ObservedObject var viewModel = MyPetViewModel()
-    @State private var showNewPetSheet = false
+    @State private var showNewPetSheet: Bool = false
     
     var body: some View {
         NavigationView {
@@ -50,7 +50,7 @@ struct MyPetView: View {
                             VStack(alignment: .leading) {
                                 Text(pet.name)
                                     .font(.headline)
-                                Text(pet.petTypeId.uuidString)
+                                Text(pet.petTypeID.uuidString)
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
                             }

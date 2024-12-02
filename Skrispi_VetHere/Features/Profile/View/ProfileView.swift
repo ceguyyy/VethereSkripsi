@@ -7,13 +7,13 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @EnvironmentObject var authVM: AuthViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
     @State private var selectedUIImage: UIImage? = nil
     @State private var showImagePicker: Bool = false
     
     var body: some View {
         VStack(spacing: 16) {
-            if let user = authVM.currentUser {
+            if let user = authViewModel.currentUser {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         Spacer()
@@ -47,7 +47,7 @@ struct ProfileView: View {
                     
                     Text("Username: \(user.username)")
                         .font(.headline)
-                    Text("Name: \(user.first_Name) \(user.last_Name)")
+                    Text("Name: \(user.firstName) \(user.lastName)")
                         .font(.title)
                         .bold()
                     Text("Role: \(user.role)")
@@ -69,7 +69,7 @@ struct ProfileView: View {
             Spacer()
             
             Button(action: {
-                authVM.logout()
+                authViewModel.logout()
             }) {
                 Text("Logout")
                     .font(.headline)

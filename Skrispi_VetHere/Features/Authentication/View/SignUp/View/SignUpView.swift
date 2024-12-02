@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @ObservedObject var authVM: AuthViewModel
+    @ObservedObject var authViewModel: AuthViewModel
     var body: some View {
         NavigationView{
             VStack(alignment: .leading) {
@@ -19,7 +19,7 @@ struct SignUpView: View {
                             .weight(.semibold)
                     )
                 
-                TextField("Masukan nama", text: $authVM.name)
+                TextField("Masukan nama", text: $authViewModel.name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
                 
@@ -30,22 +30,22 @@ struct SignUpView: View {
                             .weight(.semibold)
                     )
                 
-                TextField("Masukan Username", text: $authVM.username)
+                TextField("Masukan Username", text: $authViewModel.username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Text("Kata Sandi")
                     .font(
                         Font.custom("SF Pro", size: 20)
                             .weight(.semibold)
                     )
-                SecureField("******", text: $authVM.password)
+                SecureField("******", text: $authViewModel.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
-                if let errorMessage = authVM.errorMessage, !errorMessage.isEmpty {
+                if let errorMessage = authViewModel.errorMessage, !errorMessage.isEmpty {
                     Text(errorMessage).foregroundColor(.red)
                 }
                 Spacer()
                 Button(action: {
-                    authVM.signup()
+                    authViewModel.signup()
                 }) {
                     Text("Register")
                         .frame(maxWidth: .infinity)
@@ -60,7 +60,7 @@ struct SignUpView: View {
                         Spacer()
                         Text("Sudah punya account? Login")
                             .foregroundColor(Color.blue).onTapGesture {
-                                authVM.isLogin = true
+                                authViewModel.isLogin = true
                                 
                             }
                         Spacer()
@@ -77,6 +77,6 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView(authVM: AuthViewModel())
+    SignUpView(authViewModel: AuthViewModel())
 }
 

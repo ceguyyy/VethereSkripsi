@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VetDetailModel: Identifiable, Codable, Hashable {
     let id: UUID
-    let scheduleId: UUID
+    let scheduleID: UUID
     let phoneNumber: String
     let latitude: Double?
     let longitude: Double?

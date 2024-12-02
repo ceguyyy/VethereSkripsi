@@ -25,7 +25,7 @@ struct HistoryView:View {
                     Spacer()
                     Image(systemName: "chevron.right").opacity(0.2)
                 }.onTapGesture {
-                    router.push(.historyDetailView(appointment: AppointmentModel(AppointmentId: UUID(), VetId: UUID(), DoctorId: UUID(), UserId: UUID(), PetId: UUID(), AppointmentNote: "", AppointmentDate: Date.now, AppointmentTime: Date.now)))
+                    router.push(.historyDetailView(appointment: AppointmentModel(appointmentID: UUID(), vetID: UUID(), doctorID: UUID(), userID: UUID(), petID: UUID(), appointmentNote: "", appointmentDate: Date.now, appointmentTime: Date.now)))
                 }
             }.navigationTitle("Riwayat")
                 .toolbar{
@@ -48,6 +48,6 @@ struct HistoryView:View {
 
 
 #Preview {
-    let sampleAppointMent = AppointmentModel(AppointmentId: UUID(), VetId: UUID(), DoctorId: UUID(), UserId: UUID(), PetId: UUID(), AppointmentNote: "Notes", AppointmentDate: .now, AppointmentTime: .now)
+    let sampleAppointMent = AppointmentModel(appointmentID: UUID(), vetID: UUID(), doctorID: UUID(), userID: UUID(), petID: UUID(), appointmentNote: "Notes", appointmentDate: .now, appointmentTime: .now)
     HistoryView(appointment: sampleAppointMent)
 }

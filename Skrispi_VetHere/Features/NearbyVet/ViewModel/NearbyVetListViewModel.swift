@@ -11,10 +11,10 @@ import Combine
 
 class NearbyVetListViewModel: ObservableObject {
     @Published var vets: [VetModel] = []
-    @Published var isLoading = false
+    @Published var isLoading: Bool = false
     @Published var error: Error?
     @Published var searchText: String = ""
-    @ObservedObject var locationVM: LocationManager
+    @ObservedObject var locationManager: LocationManager
     
     private var cancellables = Set<AnyCancellable>()
     private let vetService: NearbyVetProtocol
@@ -29,25 +29,25 @@ class NearbyVetListViewModel: ObservableObject {
     }
     
     
-    init(locationVM: LocationManager, vetService: NearbyVetProtocol = NearbyVetAPIService()) {
-        self.locationVM = locationVM
+    init(locationManager: LocationManager, vetService: NearbyVetProtocol = NearbyVetAPIService()) {
+        self.locationManager = locationManager
         self.vetService = vetService
 
-        locationVM.$latitude
-            .combineLatest(locationVM.$longitude)
+        locationManager.$latitude
+            .combineLatest(locationManager.$longitude)
             .sink { [weak self] latitude, longitude in
                 guard let latitude = latitude, let longitude = longitude else { return }
                 self?.fetchVetList(latitude: latitude, longitude: longitude)
             }
             .store(in: &cancellables)
         
-        locationVM.requestLocationPermission()
+        locationManager.requestLocationPermission()
     }
     
     
     func fetchLocation() {
-        if let latitude = locationVM.latitude,
-           let longitude = locationVM.longitude {
+        if let latitude = locationManager.latitude,
+           let longitude = locationManager.longitude {
             fetchVetList(latitude: latitude, longitude: longitude)
         } else {
             print("Location is not available.")

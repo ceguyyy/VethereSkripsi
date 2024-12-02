@@ -9,56 +9,56 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    @ObservedObject var authVM: AuthViewModel
+    @ObservedObject var authViewModel: AuthViewModel
     @StateObject private var router = Router()
     
     var body: some View {
         NavigationStack(path: $router.path) {
             TabView {
                 NavigationStack(path: $router.path) {
-                    NearbyVetView(authVM: authVM)
+                    NearbyVetView(authViewModel: authViewModel)
                         .environmentObject(router)
-                        .environmentObject(authVM)
+                        .environmentObject(authViewModel)
                         .navigationDestination(for: Screen.self) { screen in
                             switch screen {
                             case .details(let vet):
                                 DetailsView(vet: vet)
                                     .environmentObject(router)
-                                    .environmentObject(authVM)
+                                    .environmentObject(authViewModel)
                             case .book(let vet, let doctor):
                                 BookChoosePetView(petViewModel: MyPetViewModel(), vet: vet, doctor: doctor)
                                     .environmentObject(router)
-                                    .environmentObject(authVM)
+                                    .environmentObject(authViewModel)
                             case .profile
                                 : ProfileView()
                                     .environmentObject(router)
-                                    .environmentObject(authVM)
+                                    .environmentObject(authViewModel)
                             case .chooseSchedule(let vet, let doctor, let pet):
                                 ChooseScheduleView(vet: vet, pet: pet, doctor: doctor)   .environmentObject(router)
-                                    .environmentObject(authVM)
+                                    .environmentObject(authViewModel)
                             case .noteview(let vet, let doctor, let pet, let selectedDate, let selectedTime):
                                 NoteView(vet: vet, doctor: doctor, pet: pet, selectedDate: selectedDate, selectedTime: selectedTime)   .environmentObject(router)
-                                    .environmentObject(authVM)
+                                    .environmentObject(authViewModel)
                             case .summaryView(let vet, let doctor, let pet, let selectedDate, let selectedTime, let note):
                                 SummaryView(vet: vet, doctor: doctor, pet: pet, selectedDate: selectedDate, selectedTime: selectedTime, notes: note)
                                     .environmentObject(router)
-                                    .environmentObject(authVM)
+                                    .environmentObject(authViewModel)
                             case .successBook:
                                 SuccessBookView()
                                     .environmentObject(router)
-                                    .environmentObject(authVM)
+                                    .environmentObject(authViewModel)
                             case .failedBook:
                                 FailedBookView()
                                     .environmentObject(router)
-                                    .environmentObject(authVM)
+                                    .environmentObject(authViewModel)
                             case .petDetail(let pet):
                                 PetDetailView(pet: pet)
                                     .environmentObject(router)
-                                    .environmentObject(authVM)
+                                    .environmentObject(authViewModel)
                             case .historyDetailView(let appointment):
                                 HistoryDetailView(appointment: appointment)
                                     .environmentObject(router)
-                                    .environmentObject(authVM)
+                                    .environmentObject(authViewModel)
                                 
                             default:
                                 EmptyView()
@@ -71,7 +71,7 @@ struct ContentView: View {
                 .tag(Screen.home)
                 
                 HistoryView()
-                    .environmentObject(authVM)
+                    .environmentObject(authViewModel)
                     .tabItem {
                         Label("Riwayat", systemImage: "clock")
                     }

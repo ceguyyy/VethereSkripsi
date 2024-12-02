@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct DoctorCardComponent: View {
+struct DoctorCardComponentView: View {
     var doctor: DoctorModel
     var specialization: DoctorSpecializationModel
     var bookingAction: () -> Void
@@ -15,8 +15,7 @@ struct DoctorCardComponent: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(spacing: 8) {
-                
-                if let imageURL = URL(string: doctor.image) {
+                if let imageURL = URL(string: doctor.doctorImage) {
                     AsyncImage(url: imageURL) { image in
                         image.resizable()
                             .frame(width: 88, height: 88)
@@ -30,7 +29,7 @@ struct DoctorCardComponent: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                     }
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(doctor.DoctorName)
+                    Text(doctor.doctorName)
                         .font(.headline)
                         .bold()
                         .padding(.leading)
@@ -39,7 +38,7 @@ struct DoctorCardComponent: View {
                         .foregroundColor(.secondary)
                         .padding(.leading)
                     HStack {
-                        ForEach(0..<doctor.DoctorRating, id: \.self) { _ in
+                        ForEach(0..<doctor.doctorRating, id: \.self) { _ in
                             Image(systemName: "star.fill")
                                 .foregroundColor(.yellow)
                                 .font(.system(size: 12))
@@ -84,19 +83,19 @@ struct DoctorCardComponent: View {
 struct DoctorCardComponent_Previews: PreviewProvider {
     static var previews: some View {
         let sampleDoctor = DoctorModel(
-            DoctorId: UUID(),
-            VetId: UUID(),
-            SpecializationId: UUID(),
-            DoctorName: "Agus",
-            DoctorRating: 5,
-            creadtedAt: .now,
-            updatedAt: .now,
-            image: "dog"
+            doctorID: UUID(),
+            vetID: UUID(),
+            specializationID: UUID(),
+            doctorName: "Agus",
+            doctorRating: 5,
+            doctorImage: "dog",
+            createdAt: .now,
+            updatedAt: .now
         )
         
         let sampleSpecialization = DoctorSpecializationModel(id: UUID(), name: "Veterinarian")
         
-        DoctorCardComponent(
+        DoctorCardComponentView(
             doctor: sampleDoctor,
             specialization: sampleSpecialization,
             bookingAction: {

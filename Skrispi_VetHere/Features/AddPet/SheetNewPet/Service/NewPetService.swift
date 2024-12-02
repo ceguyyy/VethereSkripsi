@@ -9,7 +9,6 @@
 import Foundation
 
 class NewPetService {
-    
     private let baseURL: String
     private let decoder: JSONDecoder
 
@@ -30,9 +29,6 @@ class NewPetService {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        
-        
-        
 
         var body = Data()
 

@@ -45,7 +45,7 @@ class AuthService {
             .eraseToAnyPublisher()
     }
     
-    func signup(username: String, password: String, firstName: String,lastname: String) -> AnyPublisher<[String: Any], Error> {
+    func register(username: String, password: String, firstName: String,lastname: String) -> AnyPublisher<[String: Any], Error> {
         let url = URL(string: "\(baseURL)/auth/register")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

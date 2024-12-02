@@ -11,9 +11,9 @@ import Foundation
 
 class MyPetViewModel: ObservableObject {
     @Published var pets: [PetModel] = []
-    @Published var isLoading = false
+    @Published var isLoading: Bool = false
     @Published var error: Error?
-    @Published var showError = false
+    @Published var showError: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
     private let service: MyPetProtocol

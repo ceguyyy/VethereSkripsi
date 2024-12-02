@@ -11,7 +11,7 @@ import Foundation
 protocol VetDetailProtocol {
     func fetchVetDetail(
         token: String,
-        vetId: String
+        vetID: String
     ) -> AnyPublisher<VetDetailModel, Error>
     
 }

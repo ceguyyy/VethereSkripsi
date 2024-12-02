@@ -9,6 +9,6 @@ import SwiftUI
 
 struct VaccineHistoryModel: Identifiable {
     let id: UUID
-    let petId: UUID
-    let vaccineId: UUID
+    let petID: UUID
+    let vaccineID: UUID
 }

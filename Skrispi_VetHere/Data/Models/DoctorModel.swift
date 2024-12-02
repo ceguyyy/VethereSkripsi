@@ -8,19 +8,19 @@
 import Foundation
 
 class DoctorModel: Identifiable, Codable, Hashable {
-    let doctorId: UUID
-    let vetId: UUID
-    let specializationId: UUID
+    let doctorID: UUID
+    let vetID: UUID
+    let specializationID: UUID
     let doctorName: String
     let doctorRating: Int
     let doctorImage: String
     let createdAt: Date
     let updatedAt: Date
     
-    init(doctorId: UUID, vetId: UUID, specializationId: UUID, doctorName: String, doctorRating: Int, doctorImage: String, createdAt: Date, updatedAt: Date) {
-        self.doctorId = doctorId
-        self.vetId = vetId
-        self.specializationId = specializationId
+    init(doctorID: UUID, vetID: UUID, specializationID: UUID, doctorName: String, doctorRating: Int, doctorImage: String, createdAt: Date, updatedAt: Date) {
+        self.doctorID = doctorID
+        self.vetID = vetID
+        self.specializationID = specializationID
         self.doctorName = doctorName
         self.doctorRating = doctorRating
         self.doctorImage = doctorImage

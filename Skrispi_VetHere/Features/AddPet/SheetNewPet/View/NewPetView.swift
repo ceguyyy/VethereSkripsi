@@ -16,7 +16,7 @@ struct NewPetView: View {
     @State private var selectedUIImage: UIImage? = nil
     @State private var showImagePicker: Bool = false
 
-    @ObservedObject private var viewModel = NewPetViewModel()
+    @ObservedObject var viewModel = NewPetViewModel()
 
     var body: some View {
         NavigationView {
@@ -61,8 +61,8 @@ struct NewPetView: View {
                         }
 
                         let newPet = NewPetModel(
-                            petTypeId: petTypeID,
-                            breedId: breedID,
+                            petTypeID: petTypeID,
+                            breedID: breedID,
                             petImage: selectedUIImage?.jpegData(compressionQuality: 0.8),
                             petName: petName,
                             petColor: petColor,

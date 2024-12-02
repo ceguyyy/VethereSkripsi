@@ -10,8 +10,6 @@ import Combine
 import Foundation
 
 class NearbyVetAPIService: NearbyVetProtocol {
-
-    
     private let baseURL: String
     private let decoder: JSONDecoder
 
@@ -45,17 +43,17 @@ class NearbyVetAPIService: NearbyVetProtocol {
                 response.data.map { data in
                     VetModel(
                         id: UUID(uuidString: data.vet.vet_id) ?? UUID(),
-                        detailId: UUID(),
+                        detailID: UUID(),
                         name: data.vet.vet_name,
                         description: data.vet.vet_description,
                         rating: data.vet.vet_rating,
                         openHour: Double(data.vet.vet_open_hour) ?? 0.0,
                         closeHour: Double(data.vet.vet_close_hour) ?? 0.0,
                         image: data.vet.vet_image,
-                        createdAt: Date(),
-                        updatedAt: Date(),
                         range: data.vet_distance,
-                        address: "0"
+                        address: "0",
+                        createdAt: Date(),
+                        updatedAt: Date()
                     )
                 }
             }

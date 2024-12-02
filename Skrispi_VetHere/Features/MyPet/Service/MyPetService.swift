@@ -54,17 +54,18 @@ class PetService: MyPetProtocol {
                     }
                     return PetModel(
                         id: id,
-                        userId: UUID(), // Replace with actual data if available
-                        petTypeId: UUID(),
-                        medicalRecordId: UUID(),
-                        breedId: UUID(),
+                        userID: UUID(), // Replace with actual data if available
+                        petTypeID: UUID(),
+                        medicalRecordID: UUID(),
+                        breedID: UUID(),
                         image: image,
                         name: name,
                         color: "Unknown", // Replace with actual data if available
                         dob: Date(), // Replace with actual data if available
+                        weight: 0.0, // Replace with actual data if available,
                         createdAt: Date(),
-                        updatedAt: Date(),
-                        weight: 0.0 // Replace with actual data if available
+                        updatedAt: Date()
+ 
                     )
                 }
             }

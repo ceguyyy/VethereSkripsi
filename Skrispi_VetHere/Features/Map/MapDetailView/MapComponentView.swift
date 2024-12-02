@@ -7,7 +7,7 @@
 import SwiftUI
 import MapKit
 
-struct MapComponent: View {
+struct MapComponentView: View {
     @StateObject private var viewModel: MapViewModel
 
     init(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
@@ -17,7 +17,7 @@ struct MapComponent: View {
     var body: some View {
         Map(coordinateRegion: $viewModel.region, interactionModes: .zoom, showsUserLocation: true, annotationItems: viewModel.annotations) { annotation in
             MapAnnotation(coordinate: annotation.coordinate) {
-                MapAnnotationView(annotation: annotation, action: {
+                MapAnnotationComponentView(annotation: annotation, action: {
                     viewModel.openInMaps(latitude: annotation.latitude, longitude: annotation.longitude)
                 })
             }
@@ -31,7 +31,7 @@ struct MapComponent: View {
 
 struct MapComponent_Previews: PreviewProvider {
     static var previews: some View {
-        MapComponent(latitude: 37.7749, longitude: -122.4194)
+        MapComponentView(latitude: 37.7749, longitude: -122.4194)
             .previewDevice("iPhone 14")
     }
 }

@@ -15,7 +15,8 @@ struct SummaryView: View {
     var selectedTime: Date?
     var notes: String?
     @EnvironmentObject var router: Router
-    @EnvironmentObject var authVM: AuthViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     var body: some View {
         VStack{
             
@@ -67,7 +68,7 @@ struct SummaryView: View {
                         }
                         .padding(4)
                         HStack{
-                            if let user = authVM.currentUser {
+                            if let user = authViewModel.currentUser {
                                 Text("Owner").font(
                                     Font.custom("SF Pro", size: 20)
                                         .weight(.semibold))
@@ -86,7 +87,7 @@ struct SummaryView: View {
                             )
                             .foregroundColor(.black)
                             Spacer()
-                            Text(doctor?.DoctorName ?? "-").font(Font.custom("SF Pro", size: 20))
+                            Text(doctor?.doctorName ?? "-").font(Font.custom("SF Pro", size: 20))
                                 .foregroundColor(.black)
                         }
                         .padding(4)

@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct LoginView: View {
-    @ObservedObject var authVM: AuthViewModel
-    @State private var navigateToSignUp = false
+struct SignInView: View {
+    @ObservedObject var authViewModel: AuthViewModel
+    @State private var navigateToSignUp: Bool = false
     
     var body: some View {
         NavigationView {
@@ -20,7 +20,7 @@ struct LoginView: View {
                     Font.custom("SF Pro", size: 20)
                     .weight(.semibold)
                     )
-                TextField("Masukan username", text: $authVM.username)
+                TextField("Masukan username", text: $authViewModel.username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .keyboardType(.emailAddress)
@@ -31,11 +31,11 @@ struct LoginView: View {
                     .weight(.semibold)
                     )
                 
-                SecureField("******", text: $authVM.password)
+                SecureField("******", text: $authViewModel.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.bottom, 10)
                 
-                if let errorMessage = authVM.errorMessage {
+                if let errorMessage = authViewModel.errorMessage {
                     if errorMessage != "User already exists"{
                         Text(errorMessage)
                             .foregroundColor(.red)
@@ -45,7 +45,7 @@ struct LoginView: View {
                 }
                 Spacer()
                 Button(action: {
-                    authVM.login()
+                    authViewModel.login()
                 }) {
                     Text("Login")
                         .frame(maxWidth: .infinity)
@@ -65,7 +65,7 @@ struct LoginView: View {
                     }
                   
                 }.onTapGesture {
-                    authVM.isLogin = false
+                    authViewModel.isLogin = false
                 }
                 
             }
@@ -77,5 +77,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(authVM: AuthViewModel())
+    SignInView(authViewModel: AuthViewModel())
 }

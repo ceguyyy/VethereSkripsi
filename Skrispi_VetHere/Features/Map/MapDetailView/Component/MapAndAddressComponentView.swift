@@ -9,7 +9,7 @@ import SwiftUI
 
 import SwiftUI
 
-struct MapAndAddressComponent: View {
+struct MapAndAddressComponentView: View {
     var vet: VetModel
     var vetDetail: VetDetailModel?
     var vetDetailViewModel: VetDetailViewModel
@@ -26,7 +26,7 @@ struct MapAndAddressComponent: View {
             } else {
                 if let latitude = vetDetailViewModel.vetDetail?.latitude,
                    let longitude = vetDetailViewModel.vetDetail?.longitude {
-                    MapComponent(latitude: latitude, longitude: longitude)
+                    MapComponentView(latitude: latitude, longitude: longitude)
                         .frame(width: 361, height: 200)
                         .padding(.horizontal)
                         .cornerRadius(10)

@@ -8,17 +8,17 @@ import SwiftUI
 
 @main
 struct VetClinicAppApp: App {
-    @StateObject var authVM = AuthViewModel() // Initialize AuthViewModel
+    @StateObject var authViewModel = AuthViewModel() // Initialize AuthViewModel
     
     var body: some Scene {
         WindowGroup {
-            if authVM.isAuthenticated {
-                ContentView(authVM: authVM)
+            if authViewModel.isAuthenticated {
+                ContentView(authViewModel: authViewModel)
             } else {
-                if authVM.isLogin {
-                    LoginView(authVM: authVM)
+                if authViewModel.isLogin {
+                    SignInView(authViewModel: authViewModel)
                 } else {
-                    SignUpView(authVM: authVM)
+                    SignUpView(authViewModel: authViewModel)
                 }
             }
         }

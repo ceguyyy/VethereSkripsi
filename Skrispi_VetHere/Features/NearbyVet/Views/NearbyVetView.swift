@@ -10,8 +10,8 @@ import SwiftUI
 
 struct NearbyVetView: View {
     @EnvironmentObject var router: Router
-    @ObservedObject var authVM: AuthViewModel
-    @ObservedObject var viewModel = NearbyVetListViewModel(locationVM: LocationManager())
+    @ObservedObject var authViewModel: AuthViewModel
+    @ObservedObject var viewModel: NearbyVetListViewModel =  NearbyVetListViewModel(locationManager: LocationManager())
     
     var body: some View {
         NavigationView {
@@ -24,7 +24,7 @@ struct NearbyVetView: View {
                             .foregroundColor(.red)
                     } else {
                         ForEach(viewModel.filteredVets) { vet in
-                            VetCardComponent(vet: vet)
+                            VetCardComponentView(vet: vet)
                                 .onTapGesture {
                                     router.push(.details(vet: vet))
                                 }

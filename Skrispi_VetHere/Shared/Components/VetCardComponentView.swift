@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct VetCardComponent: View {
+struct VetCardComponentView: View {
     var vet: VetModel
     
     var body: some View {

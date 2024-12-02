@@ -10,31 +10,31 @@ import Combine
 
 class PetModel: Identifiable, Decodable, Hashable {
     let id: UUID
-    let userId: UUID
-    let petTypeId: UUID
-    let medicalRecordId: UUID
-    let breedId: UUID
+    let userID: UUID
+    let petTypeID: UUID
+    let medicalRecordID: UUID
+    let breedID: UUID
     let image: String
     let name: String
     let color: String
     let dob: Date
+    let weight: Double
     let createdAt: Date
     let updatedAt: Date
-    let weight: Double
     
-    init(id: UUID, userId: UUID, petTypeId: UUID, medicalRecordId: UUID, breedId: UUID, image: String, name: String, color: String, dob: Date, createdAt: Date, updatedAt: Date, weight: Double) {
+    init(id: UUID, userID: UUID, petTypeID: UUID, medicalRecordID: UUID, breedID: UUID, image: String, name: String, color: String, dob: Date, weight: Double, createdAt: Date, updatedAt: Date) {
         self.id = id
-        self.userId = userId
-        self.petTypeId = petTypeId
-        self.medicalRecordId = medicalRecordId
-        self.breedId = breedId
+        self.userID = userID
+        self.petTypeID = petTypeID
+        self.medicalRecordID = medicalRecordID
+        self.breedID = breedID
         self.image = image
         self.name = name
         self.color = color
         self.dob = dob
+        self.weight = weight
         self.createdAt = createdAt
         self.updatedAt = updatedAt
-        self.weight = weight
     }
     
     static func == (lhs: PetModel, rhs: PetModel) -> Bool {

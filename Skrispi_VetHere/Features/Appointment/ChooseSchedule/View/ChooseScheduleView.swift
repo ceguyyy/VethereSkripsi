@@ -12,9 +12,9 @@ struct ChooseScheduleView: View {
     var pet: PetModel?
     var doctor: DoctorModel?
     @EnvironmentObject var router: Router
-    @State private var selectedDate = Date()
-    @State private var selectedTime = Date()
-
+    @State private var selectedDate: Date = Date()
+    @State private var selectedTime: Date = Date()
+    
     var body: some View {
         VStack{
             List{
@@ -30,9 +30,7 @@ struct ChooseScheduleView: View {
                     
                     DatePicker("Time", selection: $selectedTime, displayedComponents: [.hourAndMinute])
                 }
-                
             }
-            
             VStack {
                 HStack {
                     HStack{
@@ -46,24 +44,18 @@ struct ChooseScheduleView: View {
                     .background(.blue)
                     .frame(maxWidth: .infinity)
                     .cornerRadius(8)
-                      
+                    
                 }
                 .onTapGesture {
                     router.push(.noteview(Vet: vet!, Doctor: doctor!, Pet: pet!, selectedDate: selectedDate, selectedTime: selectedTime))
                 }
                 .padding(.horizontal)
             }
-            
-            
-             
-                    
-            
         }
         .navigationTitle("Pilih Jadwal")
         .padding(.top, 10)
     }
-
-
+    
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium

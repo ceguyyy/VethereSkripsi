@@ -34,8 +34,8 @@ class AuthViewModel: ObservableObject {
     
     static var mock: AuthViewModel {
             let vm = AuthViewModel()
-        vm.currentUser = UserModel(Userid: UUID(), username: "Christian", first_Name: "Christian", last_Name: "Gunawan", password: "Christian", role: "User", createdAt: Date(), updatedAt: Date(),imageName: "https://media.licdn.com/dms/image/v2/D5603AQHvobv7mQ-cow/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1704765668714?e=2147483647&v=beta&t=mBPL4u4a5YeR89d4ISbGIcXdoaK52OkfQq1gMLfR76Q")
-                                       
+        vm.currentUser = UserModel(userID: UUID(), username: "Christian", firstName: "Christian", lastName: "Gunawan", password: "Christian", role: "User", imageName: "https://media.licdn.com/dms/image/v2/D5603AQHvobv7mQ-cow/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1704765668714?e=2147483647&v=beta&tz=mBPL4u4a5YeR89d4ISbGIcXdoaK52OkfQq1gMLfR76Q", createdAt: Date(),updatedAt: Date())
+                                
             
             return vm
         }
@@ -55,7 +55,7 @@ class AuthViewModel: ObservableObject {
                     TokenManager.shared.token = accessToken
                     self.isAuthenticated = true
                     self.successMessage = "Login successful"
-                    self.currentUser = UserModel(Userid: UUID(), username: self.username, first_Name: self.firstName, last_Name: self.lastName, password: self.password, role: self.role, createdAt: self.createdAt, updatedAt: self.updatedAt, imageName: self.imageName)
+                    self.currentUser = UserModel(userID: UUID(), username: self.username, firstName: self.firstName, lastName: self.lastName, password: self.password, role: self.role, imageName: self.imageName, createdAt: self.createdAt, updatedAt: self.updatedAt)
                     
                 } else {
                     self.errorMessage = "Failed to parse response"
@@ -63,11 +63,11 @@ class AuthViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
-
+    
     
     
     func signup() {
-        AuthService.shared.signup(username: username, password: password, firstName: firstName, lastname: lastName)
+        AuthService.shared.register(username: username, password: password, firstName: firstName, lastname: lastName)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {

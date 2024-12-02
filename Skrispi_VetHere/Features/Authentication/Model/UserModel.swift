@@ -8,21 +8,21 @@
 import Foundation
 
 class UserModel: Identifiable {
-    let Userid: UUID
+    let userID: UUID
     let username: String
-    let first_Name: String
-    let last_Name: String
+    let firstName: String
+    let lastName: String
     let password: String
     let role: String
     let createdAt: Date
     let updatedAt: Date
     let imageName: String
     
-    init(Userid: UUID, username: String, first_Name: String, last_Name: String, password: String, role: String, createdAt: Date, updatedAt: Date, imageName: String) {
-        self.Userid = Userid
+    init(userID: UUID, username: String, firstName: String, lastName: String, password: String, role: String, imageName: String, createdAt: Date, updatedAt: Date) {
+        self.userID = userID
         self.username = username
-        self.first_Name = first_Name
-        self.last_Name = last_Name
+        self.firstName = firstName
+        self.lastName = lastName
         self.password = password
         self.role = role
         self.createdAt = createdAt

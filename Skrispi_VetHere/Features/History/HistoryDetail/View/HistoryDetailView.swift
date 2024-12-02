@@ -8,8 +8,7 @@
 import SwiftUI
 
 
-struct HistoryDetailView:View {
-    
+struct HistoryDetailView: View {
     @EnvironmentObject var router: Router
     var appointment: AppointmentModel?
     var body: some View {

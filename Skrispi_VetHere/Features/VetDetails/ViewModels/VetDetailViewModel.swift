@@ -22,7 +22,7 @@ class VetDetailViewModel: ObservableObject {
         self.apiService =  apiService
     }
 
-    func fetchVetDetail(vetId: String) {
+    func fetchVetDetail(vetID: String) {
         guard !hasFetched else {
             print("Vet details already fetched.")
             return
@@ -37,14 +37,14 @@ class VetDetailViewModel: ObservableObject {
             return
         }
 
-        apiService.fetchVetDetail(token: token, vetId: vetId)
+        apiService.fetchVetDetail(token: token, vetID: vetID)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    self?.handleError(message: "Failed to fetch vet details: \(error.localizedDescription) for vetID: \(vetId)")
+                    self?.handleError(message: "Failed to fetch vet details: \(error.localizedDescription) for vetID: \(vetID)")
                 }
                 self?.isLoading = false
             }, receiveValue: { [weak self] fetchedVetDetail in

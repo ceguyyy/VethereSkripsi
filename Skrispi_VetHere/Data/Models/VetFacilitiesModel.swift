@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VetFacilityModel: Identifiable, Codable {
     let id: UUID
-    let facilityId: UUID
+    let facilityID: UUID
     let createdAt: Date
     let updatedAt: Date
 }

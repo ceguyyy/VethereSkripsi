@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 class VetAnnotationModel: Identifiable {
-    var id = UUID()
+    var id: UUID = UUID()
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
 
