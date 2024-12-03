@@ -1,31 +1,25 @@
 //
 //  DoctorModel.swift
-//  VetHereiOS
+//  Skrispi_VetHere
 //
-//  Created by Christian Gunawan on 29/10/24.
+//  Created by Christian Gunawan on 03/12/24.
 //
 
-import Foundation
+import SwiftUI
 
 class DoctorModel: Identifiable, Codable, Hashable {
-    let doctorID: UUID
-    let vetID: UUID
-    let specializationID: UUID
+    let id: UUID
     let doctorName: String
     let doctorRating: Int
-    let doctorImage: String
-    let createdAt: Date
-    let updatedAt: Date
+    let specializationName: String
+    let image: String
     
-    init(doctorID: UUID, vetID: UUID, specializationID: UUID, doctorName: String, doctorRating: Int, doctorImage: String, createdAt: Date, updatedAt: Date) {
-        self.doctorID = doctorID
-        self.vetID = vetID
-        self.specializationID = specializationID
+    init(id: UUID, doctorName: String, doctorRating: Int, specializationName: String, image: String) {
+        self.id = id
         self.doctorName = doctorName
         self.doctorRating = doctorRating
-        self.doctorImage = doctorImage
-        self.createdAt = createdAt
-        self.updatedAt = updatedAt
+        self.specializationName = specializationName
+        self.image = image
     }
     
     static func == (lhs: DoctorModel, rhs: DoctorModel) -> Bool {
@@ -35,7 +29,4 @@ class DoctorModel: Identifiable, Codable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
 }
-

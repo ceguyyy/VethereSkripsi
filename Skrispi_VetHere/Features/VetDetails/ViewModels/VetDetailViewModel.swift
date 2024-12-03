@@ -23,11 +23,6 @@ class VetDetailViewModel: ObservableObject {
     }
 
     func fetchVetDetail(vetID: String) {
-        guard !hasFetched else {
-            print("Vet details already fetched.")
-            return
-        }
-        hasFetched = true
         isLoading = true
         error = nil
         showError = false

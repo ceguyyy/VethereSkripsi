@@ -8,14 +8,13 @@ import SwiftUI
 
 struct DoctorCardComponentView: View {
     var doctor: DoctorModel
-    var specialization: DoctorSpecializationModel
     var bookingAction: () -> Void
     var chatAction: () -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack(spacing: 8) {
-                if let imageURL = URL(string: doctor.doctorImage) {
+                if let imageURL = URL(string: doctor.image) {
                     AsyncImage(url: imageURL) { image in
                         image.resizable()
                             .frame(width: 88, height: 88)
@@ -26,14 +25,14 @@ struct DoctorCardComponentView: View {
                         Image(systemName: "person.circle.fill")
                             .resizable()
                             .frame(width: 88, height: 88)
-                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            
                     }
                 VStack(alignment: .leading, spacing: 8) {
                     Text(doctor.doctorName)
                         .font(.headline)
                         .bold()
                         .padding(.leading)
-                    Text(specialization.name)
+                    Text(doctor.specializationName)
                         .font(.caption)
                         .foregroundColor(.secondary)
                         .padding(.leading)
@@ -80,32 +79,4 @@ struct DoctorCardComponentView: View {
     }
 }
 
-struct DoctorCardComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        let sampleDoctor = DoctorModel(
-            doctorID: UUID(),
-            vetID: UUID(),
-            specializationID: UUID(),
-            doctorName: "Agus",
-            doctorRating: 5,
-            doctorImage: "dog",
-            createdAt: .now,
-            updatedAt: .now
-        )
-        
-        let sampleSpecialization = DoctorSpecializationModel(id: UUID(), name: "Veterinarian")
-        
-        DoctorCardComponentView(
-            doctor: sampleDoctor,
-            specialization: sampleSpecialization,
-            bookingAction: {
-                print("Booking action triggered")
-            },
-            chatAction: {
-                print("Chat action triggered")
-            }
-        )
-        .previewLayout(.sizeThatFits)
-        .padding()
-    }
-}
+

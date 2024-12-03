@@ -2,8 +2,9 @@
 //  DetailsView.swift
 //  Skrispi_VetHere
 //
-//  Created by Christian Gunawan on 06/11/24.
+//  Created by Christian Gunawan on 03/12/24.
 //
+
 
 import SwiftUI
 
@@ -11,14 +12,16 @@ struct DetailsView: View {
     @EnvironmentObject var router: Router
     @StateObject private var vetDetailViewModel = VetDetailViewModel()
     @State private var selectedSegment: DetailEnum = .appointment
-    @State private var hasFetchedDetails = false
+    @State private var hasFetchedDetails = false 
+    
     var vet: VetModel
     var vetDetail: VetDetail?
     var doctor: DoctorModel?
-   
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
+                
                 if let imageURL = URL(string: vet.image) {
                     AsyncImage(url: imageURL) { image in
                         image.resizable()
@@ -65,54 +68,40 @@ struct DetailsView: View {
                 Group {
                     switch selectedSegment {
                     case .appointment:
-                        DoctorCardComponentView(
-                            doctor: doctor ?? DoctorModel(
-                                doctorID: UUID(),
-                                vetID: UUID(),
-                                specializationID: UUID(),
-                                doctorName: "Joseph",
-                                doctorRating: 5,
-                                doctorImage: "test",
-                                createdAt: Date(),
-                                updatedAt: Date()
-                            ),
-                            specialization: DoctorSpecializationModel(id: UUID(), name: "ahli"),
-                            bookingAction: {
-                                router.push(.book(vet: vet, doctor: DoctorModel(
-                                    doctorID: UUID(),
-                                    vetID: UUID(),
-                                    specializationID: UUID(),
-                                    doctorName: "Joseph",
-                                    doctorRating: 5,
-                                    doctorImage: "test",
-                                    createdAt: Date(),
-                                    updatedAt: Date()
-                                )))
-                            },
-                            chatAction: {
-                                guard let phoneNumber = vetDetailViewModel.vetDetail?.phoneNumber else {
-                                    print("Phone number is unavailable")
-                                    return
+                        if let doctors = vetDetailViewModel.vetDetail?.doctors {
+                            DoctorListView(
+                                doctors: doctors,
+                                bookingAction: { doctor in
+                                    router.push(.book(vet: vet, doctor: doctor))
+                                },
+                                chatAction: {
+                                    print("NotImplemented")
                                 }
-                                openWhatsAppManager(
-                                    phoneNumber: phoneNumber,
-                                    message: "Hello, Selamat siang saya ingin berkonsultasi dengan Dr. Joseph"
-                                )
-                            }
-                        )
+                            )
+                        }
+                        
                     case .information:
-                        MapAndAddressComponentView(vet: vet, vetDetailViewModel: vetDetailViewModel)
+                        MapAndAddressComponentView(
+                            vet: vet,
+                            vetDetailViewModel: vetDetailViewModel
+                        )
+                        
+                        HStack{
+                            Text("Facilities:")
+                                .font(.headline)
+                            ForEach(vetDetailViewModel.vetDetail?.facilities ?? [], id: \.id) { facility in
+                                Text(facility.facilityName)
+                                    .font(.caption)
+                            }
+                        }.padding(.horizontal)
                     }
                 }
-            }
-            .onAppear {
-                if !hasFetchedDetails {
+                .onAppear {
                     vetDetailViewModel.fetchVetDetail(vetID: vet.id.uuidString)
-                    hasFetchedDetails = true
                 }
             }
+            .navigationTitle(vet.name)
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle(vet.name)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }

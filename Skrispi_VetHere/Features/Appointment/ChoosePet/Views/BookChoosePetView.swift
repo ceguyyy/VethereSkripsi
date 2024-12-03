@@ -11,14 +11,18 @@ struct BookChoosePetView: View {
     var body: some View {
         VStack {
             List {
-                Section(header: Text("Hewan peliharaan")) {
-                    ForEach(petViewModel.pets) { pet in
-                        PetRowComponentView(pet: pet) {
-                            selectedPet = pet
-                        }
-                    }
-                }
-            }
+                     Section(header: Text("Hewan peliharaan")) {
+                         ForEach(petViewModel.pets) { pet in
+                             PetRowComponentView(pet: pet) {
+                                 selectedPet = (selectedPet == pet) ? nil : pet
+                             }
+                             .background(selectedPet == pet ? Color.blue.opacity(0.1) : Color.clear)
+                             .cornerRadius(8)
+                         }
+                     }
+                 } .refreshable{
+                     petViewModel.fetchPetList()
+                 }
 
             VStack {
                 HStack {
@@ -51,7 +55,7 @@ struct BookChoosePetView: View {
                     router.push(
                         .chooseSchedule(
                             vet: vet ?? VetModel(id: UUID(), detailID: UUID(), name: "", description: "", rating: 1, openHour: 1, closeHour: 1, image: "", range: 1, address: "", createdAt: Date.now, updatedAt: Date.now),
-                            doctor: doctor ?? DoctorModel(doctorID: UUID(), vetID: UUID(), specializationID: UUID(), doctorName: "", doctorRating: 1, doctorImage: "", createdAt: Date.now, updatedAt: Date.now),
+                            doctor: doctor ?? DoctorModel(id: UUID(), doctorName: "CG", doctorRating: 1, specializationName: "", image: ""),
                             pet: selectedPet ?? PetModel(id: UUID(), userID: UUID(), petTypeID: UUID(), medicalRecordID: UUID(), breedID: UUID(), image: "", name: "", color: "", dob: Date.now, weight: 1, createdAt: Date.now, updatedAt: Date.now)
                         )
                     )
@@ -66,6 +70,7 @@ struct BookChoosePetView: View {
             .cornerRadius(8)
             .padding(.horizontal)
             .listStyle(InsetGroupedListStyle())
+           
             .onAppear {
                 petViewModel.fetchPetList()
             }
