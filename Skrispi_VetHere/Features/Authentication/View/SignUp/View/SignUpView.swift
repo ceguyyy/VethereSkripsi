@@ -45,7 +45,7 @@ struct SignUpView: View {
                 }
                 Spacer()
                 Button(action: {
-                    authViewModel.signup()
+                    authViewModel.register()
                 }) {
                     Text("Register")
                         .frame(maxWidth: .infinity)

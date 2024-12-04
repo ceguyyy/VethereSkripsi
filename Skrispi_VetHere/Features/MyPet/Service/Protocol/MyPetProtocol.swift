@@ -10,5 +10,5 @@ import Combine
 import Foundation
 
 protocol MyPetProtocol {
-    func fetMyPet(token: String) -> AnyPublisher<[PetModel], Error>
+    func fetchMyPet(token: String) -> AnyPublisher<[PetModel], Error>
 }

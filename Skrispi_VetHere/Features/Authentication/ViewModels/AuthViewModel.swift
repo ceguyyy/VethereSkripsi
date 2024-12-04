@@ -9,20 +9,20 @@ import Combine
 import SwiftUI
 
 class AuthViewModel: ObservableObject {
-    @Published var username = ""
-    @Published var password = ""
-    @Published var role = "user"
-    @Published var createdAt = Date.now
-    @Published var updatedAt = Date.now
-    @Published var isAuthenticated = false
+    @Published var username: String = ""
+    @Published var password: String = ""
+    @Published var role: String = "user"
+    @Published var createdAt: Date = Date.now
+    @Published var updatedAt: Date = Date.now
+    @Published var isAuthenticated: Bool = false
     @Published var errorMessage: String?
     @Published var successMessage: String? = nil
     @Published var currentUser: UserModel?
-    @Published var isLogin = true
-    @Published var imageName = ""
-    @Published var firstName = ""
-    @Published var lastName = ""
-    @Published var name = "" {
+    @Published var isLogin: Bool = true
+    @Published var imageName: String = ""
+    @Published var firstName: String = ""
+    @Published var lastName: String = ""
+    @Published var name: String = "" {
         didSet {
             let components = name.split(separator: " ", maxSplits: 1).map { String($0) }
             firstName = components.first ?? ""
@@ -66,7 +66,7 @@ class AuthViewModel: ObservableObject {
     
     
     
-    func signup() {
+    func register() {
         AuthService.shared.register(username: username, password: password, firstName: firstName, lastname: lastName)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
