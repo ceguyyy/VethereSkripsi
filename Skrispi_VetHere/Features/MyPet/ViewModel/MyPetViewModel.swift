@@ -35,7 +35,7 @@ class MyPetViewModel: ObservableObject {
             return
         }
         
-        service.fetMyPet(token: token)
+        service.fetchMyPet(token: token)
             .sink(receiveCompletion: { completion in
                 self.isLoading = false
                 switch completion {

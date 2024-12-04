@@ -18,7 +18,7 @@ class PetService: MyPetProtocol {
         self.decoder = JSONDecoder()
         self.decoder.dateDecodingStrategy = .iso8601
     }
-    func fetMyPet(token: String) -> AnyPublisher<[PetModel], any Error> {
+    func fetchMyPet(token: String) -> AnyPublisher<[PetModel], any Error> {
         guard let url = URL(string: baseURL + "/all") else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }

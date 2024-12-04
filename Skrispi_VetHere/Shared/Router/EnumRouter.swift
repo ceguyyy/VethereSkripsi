@@ -19,7 +19,7 @@ enum Screen:Hashable{
     case chat
     case myPet
     case login
-    case signup
+    case register
     case chooseSchedule(vet: VetModel, doctor: DoctorModel, pet: PetModel)
     case noteview(Vet: VetModel, Doctor: DoctorModel, Pet: PetModel, selectedDate: Date, selectedTime: Date)
     case summaryView(Vet: VetModel, Doctor: DoctorModel, Pet: PetModel, selectedDate: Date, selectedTime: Date, note: String)

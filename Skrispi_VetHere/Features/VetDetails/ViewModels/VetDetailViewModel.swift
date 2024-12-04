@@ -10,10 +10,10 @@ import Combine
 
 class VetDetailViewModel: ObservableObject {
     @Published var vetDetail: VetDetailModel?
-    @Published var isLoading = false
+    @Published var isLoading: Bool = false
     @Published var error: String?
-    @Published var showError = false
-    private var hasFetched = false
+    @Published var showError: Bool = false
+    private var hasFetched: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
     private let apiService: VetDetailProtocol
